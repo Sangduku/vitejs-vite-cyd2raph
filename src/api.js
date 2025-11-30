@@ -9,7 +9,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 export async function fetchCampaignData(campaignId) {
     const { data, error } = await supabase
         .from('campaign')
-        .select('*') // 필요한 컬럼만 적어도 됨
+        .select('1') // 필요한 컬럼만 적어도 됨
         .eq('campaign_id', campaignId)
         .single()
     return { data, error }
@@ -19,7 +19,7 @@ export async function fetchCampaignData(campaignId) {
 export async function fetchEventData(eventId) {
     const { data, error } = await supabase
         .from('event')
-        .select('*')
+        .select('1')
         .eq('event_id', eventId)
         .single()
     return { data, error }
